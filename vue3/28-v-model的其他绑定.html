@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-model</title>
+    <script src="https://unpkg.com/vue@next"></script><!--使用CDN的方式引用vue-->
+</head>
+<body>
+    <div id="app"></div>
+    <template id="modular">
+        <label for="one"><!--绑定文字勾选-->
+            <input id="one" type="checkbox" value="苹果" v-model="fruit">苹果<!--注意input需要有value值-->
+        </label>
+        <label for="two">
+            <input id="two" type="checkbox" value="雪梨" v-model="fruit">雪梨
+        </label>
+        <label for="three">
+            <input id="three" type="checkbox" value="香蕉" v-model="fruit">香蕉
+        </label>
+        <!-- 真实开发的时候数据是动态绑定的 -->
+        <!-- <label for="three">
+            <input id="three" type="checkbox" v-for="item in fruit" :value="item.value" >{{item.name}}
+        </label> -->
+        <h2>{{fruit}}</h2>
+    </template>
+    <script>
+        Vue.createApp({
+            
+            template:'#modular',//1模块
+
+            data:function(){//2数据
+                return{
+                 fruit:[]   
+                }
+            },
+
+            methods:{//3方法
+                add(){//add函数
+
+                },
+            }
+        }).mount("#app");
+    </script>
+</body>
+</html>

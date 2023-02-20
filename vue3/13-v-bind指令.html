@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-bind指令</title>
+    <!-- 某些属性希望动态绑定，这个动态与data有关，重要 -->
+    <script src="https://unpkg.com/vue@next"></script><!--使用CDN的方式引用vue-->
+</head>
+<style>
+    .active{
+        color:red;
+    }
+</style>
+<body>
+    <div id="app"></div>
+    <template id="modular">
+        <!-- 基本数据绑定 -->
+        <img v-bind:src="imgUrl" alt="">
+        <a v-bind:href="link">百度一下</a><!--动态绑定数据-->
+        <a :href="link">百度一下</a><!--v-bind的简写-->
+        <!--对象绑定-->
+        <h2 :class="{'active':isActive}">绑定class</h2>
+        <button @click="change">change</button>
+        <h2 :style="{'color':'red'}">绑定style</h2>
+    </template>
+    <script>
+        Vue.createApp({
+            
+            template:'#modular',//1模块
+
+            data:function(){//2数据
+                return{
+                 imgUrl:"https://img2.baidu.com/it/u=4086491375,3961087959&fm=253&fmt=auto&app=138&f=JPEG?w=562&h=500",
+                 link:"https://www.baidu.com",
+                 isActive:true   
+                }
+            },
+
+            methods:{//3方法
+                change(){
+                    this.isActive=!this.isActive;
+                }
+                
+            }
+        }).mount("#app");
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>搜索</title>
+    <script src="https://unpkg.com/vue@next"></script><!--使用CDN的方式引用vue-->
+</head>
+<body>
+    <div id="app"></div>
+    <template id="modular">
+        <input type="text" v-model="keyword">
+        <li  v-for="item in showNames" :key="item">{{item}}</li>
+    </template>
+    <script>
+        Vue.createApp({
+            
+            template:'#modular',//1模块
+
+            data:function(){//2数据
+                return{
+                    names:["张三","李四","王五","老六","王明","张媛"],
+                    keyword:""
+                }
+            },
+
+            methods:{//3方法
+                
+            },
+            computed:{
+                showNames(){
+                    return this.names.filter(item => item.indexOf(this.keyword )!==-1);
+                    //计算属性，把名字过滤一下，把符合条件的显示出来
+                    
+                }
+            }
+        }).mount("#app");
+    </script>
+</body>
+</html>

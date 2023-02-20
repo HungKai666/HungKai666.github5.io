@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./bootstrap-JS CSS/bootstrap.min.css">
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="./bootstrap-JS CSS/bootstrap.min.js"></script>
+    <!-- 引入bootstrap4的css以及js -->
+    <!-- 对于bootstrap的学习可以使用w3school官网进行学习,具体的网站地址是：https://www.w3schools.cn/bootstrap4/bootstrap_navbar.asp -->
+    <style>
+        .navbar-brand img{
+            height: 40px;
+        }
+        .form-inline{
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+        <!-- logo开始 -->
+        <div class="navbar-brand" href="#"><img src="./img/1.jpg"></div>
+        <div class="navbar-brand" style="float: left;">手机商城</div>
+        <!-- logo结束 -->
+        <!-- 汉堡按钮开始 -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- 汉堡按钮结束 -->
+        <!-- 导航开始 -->
+        <div class="collapse navbar-collapse" id="collapsibleNavbar"><!--此处的id与汉堡按钮的data-target绑定，样式修改成汉堡按钮的tada-toggle-->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link" href="#">首页</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">商品分类</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">个人中心</a>
+                </li>
+              </ul>
+              
+              <!-- 搜索框开始 -->
+              <!-- <form class="form-inline" action="/action_page.php">
+                  <input class="form-control mr-sm-2" type="text" placeholder="输入商品信息">
+                  <button class="btn btn-success" type="submit">搜索</button>
+              </form> -->
+              <!-- 搜索框结束 -->
+            </div>
+            </nav>
+            <!-- 导航结束 -->
+</body> 
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setter,getter</title>
+    <script src="https://unpkg.com/vue@next"></script><!--使用CDN的方式引用vue-->
+</head>
+<body>
+    <div id="app"></div>
+    <template id="modular">
+        <h2>{{fullName}}</h2><!--computed需要计算-->
+        <button @click="change">change</button>
+    </template>
+    <script>
+        Vue.createApp({
+            
+            template:'#modular',//1模块
+
+            data:function(){//2数据
+                return{
+                   firstName:"张三",
+                   lastName:"李四",
+                }
+            },
+
+            methods:{//3方法
+                change(){
+                    this.firstName="申鸿基";
+                }
+            },
+            computed:{//4计算属性
+               fullName:{
+                get:function(){
+                    return this.firstName+""+this.lastName;
+                },
+                set:function(){//这种写法不常用
+                    var names=newValue.split(" ");//切割
+                    this.firstName=name[0];
+                    this.lastName=name[1];
+                }
+               }
+            }
+        }).mount("#app");
+    </script>
+</body>
+</html>

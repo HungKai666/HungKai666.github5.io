@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="information">
+        <li>张三</li>
+        <li>男</li>
+        <li>19岁</li>
+        <li>90分</li>
+    </div>
+    <div id="information2"></div>
+    <div >
+        <input   type="text" placeholder="请输入姓名" value="" >
+        <input   type="text" placeholder="请输入性别" value="" >
+        <input   type="text" placeholder="请输入年龄" value="" >
+        <input   type="text" placeholder="请输入成绩" value="" >
+        <button onclick="put()">添加</button>
+    </div>
+    <script> 
+        function put(){
+            // 获取所有输入框
+        var inputs = document.getElementsByTagName('input');
+        var values=[];//定义空数组存储输入框的值
+        // 遍历输入框
+        for (var i=0; i<inputs.length; i++) {
+            // 获取每一个输入框的值
+            var inputValue = inputs[i].value;
+            console.log(inputValue);
+            values.push(inputValue);//把值赋给数组
+        }
+        //把值渲染到页面中
+           document.getElementById("information2").innerHTML=values.join(",");
+        
+        }
+        
+        
+        
+        </script>
+</body>
+</html>

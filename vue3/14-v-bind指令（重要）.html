@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-bind指令</title>
+    <script src="https://unpkg.com/vue@next"></script><!--使用CDN的方式引用vue-->
+</head>
+<body>
+    <div id="app"></div>
+    <template id="modular">
+        <h2 v-bind="info">{{counter}}</h2><!--直接绑定一个对象，很重要-->
+    </template>
+    <script>
+        Vue.createApp({
+            
+            template:'#modular',//1模块
+
+            data:function(){//2数据
+                return{
+                 info:{
+                    name:"张三",
+                    age:18,
+                    height:1.88
+                 }   
+                }
+            },
+
+            methods:{//3方法
+                
+            }
+        }).mount("#app");
+    </script>
+</body>
+</html>

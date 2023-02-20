@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+<!--html代码-->
+<div class="nav">
+    <ul>
+        <li><a href="#">首页</a></li>
+        <li class="sub-menu"><a href="#">商品分类</a>
+            <ul>
+                <li><a href="01-flex.html">手机</a></li>
+                <li><a href="#">电脑</a></li>
+                <li><a href="#">家电</a></li>
+            </ul>
+        </li>
+        <li class="sub-menu"><a href="#">购物车</a>
+            <ul>
+                <li><a href="01-flex.html">手机</a></li>
+                <li><a href="#">电脑</a></li>
+                <li><a href="#">家电</a></li>
+            </ul>
+        </li>
+        <li><a href="#">个人中心</a></li>
+    </ul>
+</div>
+
+<!--javascript代码-->
+<script type="text/javascript">
+    // 获取当前页面的nav菜单
+    var nav = document.querySelector('.nav');
+    // 获取nav菜单下所有的li
+    var li = nav.querySelectorAll('li');
+    // 遍历li数组
+    li.forEach(function(item){
+        // 判断当前li是否有子菜单
+        if(item.className === 'sub-menu'){
+            // 为当前li添加点击事件
+            item.addEventListener('click', function(){
+                // 获取当前li下的ul
+                var ul = item.querySelector('ul');
+                // 判断ul是否显示，如果显示就隐藏，如果隐藏就显示
+                if(ul.style.display === 'none' || ul.style.display === ''){
+                    ul.style.display = 'block';
+                }else{
+                    ul.style.display = 'none';
+                }
+            });
+        }
+    });
+</script>
+</body>
+</html>

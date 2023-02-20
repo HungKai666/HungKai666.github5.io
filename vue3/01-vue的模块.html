@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue的模块</title>
+    <script src="https://unpkg.com/vue@next"></script><!--使用CDN的方式引用vue-->
+</head>
+<body>
+    <div id="app"></div>
+    
+    <script>
+        Vue.createApp({
+            
+            template:`<h2>hello word!</h2>`,//1模块
+
+            data:function(){//2数据
+                return{
+                 counter:100,   
+                }
+            },
+
+            methods:{//3方法
+                add(){//add函数
+
+                },
+            }
+        }).mount("#app");
+    </script>
+</body>
+</html>

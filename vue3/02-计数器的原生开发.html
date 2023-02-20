@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原生计数器</title>
+</head>
+<body>
+    <h2 class="counter">0</h2>
+    <button class="add">+1</button>
+    <button class="del">-1</button>
+    <script>
+        //获取所有元素
+        var counter=document.querySelector(".counter");
+        var add=document.querySelector(".add");
+        var del=document.querySelector(".del");
+        //定义变量
+        var i=100;
+        counter.innerHTML=i;
+        //监听按钮,添加点击事件
+        add.addEventListener('click',()=>{
+            i++;
+            counter.innerHTML=i;
+        })
+        del.addEventListener('click',()=>{
+            i--;
+            counter.innerHTML=i;
+        })
+
+    </script>
+</body>
+</html>

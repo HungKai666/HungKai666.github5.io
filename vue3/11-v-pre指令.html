@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-pre指令</title>
+    <script src="https://unpkg.com/vue@next"></script><!--使用CDN的方式引用vue-->
+</head>
+<body>
+    <div id="app"></div>
+    <template id="modular">
+        <h2 v-pre>{{counter}}</h2><!--跳过解析/不解析，用得比较少-->
+    </template>
+    <script>
+        Vue.createApp({
+            
+            template:'#modular',//1模块
+
+            data:function(){//2数据
+                return{
+                 counter:100,   
+                }
+            },
+
+            methods:{//3方法
+               
+            }
+        }).mount("#app");
+    </script>
+</body>
+</html>

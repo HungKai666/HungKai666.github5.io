@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- json是字符串，可以变成任何语言的对象，主要用于数据的传递 -->
+<body>
+    
+</body>
+<script>
+    var obj='{"name":"张三","sex":"男"}';//对象
+    var arr='[1,2,3,"hello"]';//数组
+    console.log(obj);//输出字符串，需要转换为可以使用的对象
+    console.log(obj.name);//undefind
+
+    var o= JSON.parse(obj);//字符串转化成对象
+    console.log(o);
+    console.log(o.name); 
+
+    var str=JSON.stringify(o);//对象转字符串
+    console.log(str);
+</script>
+</html>

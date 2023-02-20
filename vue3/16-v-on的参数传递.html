@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-on的参数传递</title>
+    <script src="https://unpkg.com/vue@next"></script><!--使用CDN的方式引用vue-->
+</head>
+<body>
+    <div id="app"></div>
+    <template id="modular">
+        <button @click="Btn">event参数</button>
+        <button @click="Btn2($event,'申鸿基')">多参数</button>
+    </template>
+    <script>
+        Vue.createApp({
+            
+            template:'#modular',//1模块
+
+            data:function(){//2数据
+                return{
+                   
+                }
+            },
+
+            methods:{//3方法
+               Btn(event){
+                console.log(event);
+               },
+               Btn2(event,name){
+                console.log(event,name);
+               }
+            }
+        }).mount("#app");
+    </script>
+</body>
+</html>

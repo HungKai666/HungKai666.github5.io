@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-on</title>
+    <script src="https://unpkg.com/vue@next"></script><!--使用CDN的方式引用vue-->
+</head>
+<body>
+    <div id="app"></div>
+    <template id="modular">
+        <button v-on:click="btn1">按钮1</button>
+        <button @click="btn2">按钮2</button><!--v-on的语法糖，简写-->
+    </template>
+    <script>
+        Vue.createApp({
+            
+            template:'#modular',//1模块
+
+            data:function(){//2数据
+                return{
+                    
+                }
+            },
+
+            methods:{//3方法
+               btn1(){
+                alert("点击了1");
+               } ,
+               btn2(){
+                alert("点击了2");
+               }
+            }
+        }).mount("#app");
+    </script>
+</body>
+</html>

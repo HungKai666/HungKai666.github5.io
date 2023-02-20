@@ -1,0 +1,57 @@
+<!-- 方式1：webpack：webpack是解析vue文件的工具 -->
+
+<!-- webpack(版本5)依赖node环境，node版本至少14版本以上，稳定性比较好 -->
+<!-- 
+安装node         官网下载
+ cmd             命令窗口
+ node --version  查看node版本
+ npm --version   查看npm版本
+-->
+
+<!-- 
+webpack的安装--出错
+1.安装webpack、webpack-cli
+npm install webpack webpack-cli -g  全局安装
+webpack --version  查看webpack的版本
+-->
+
+<!-- 方式2：Vue CLI：脚手架(新手推荐) -->
+
+<!-- vue3脚手架的安装 
+    本电脑已经安装node,如果没有安装需要先安装,查看node有没有安装（node -v）
+    用管理员权限创建
+    第一步：如果已经安装了vue2，命令的后面则需要加上-init向下兼容vue2
+    :npm i -g @vue/cli -init
+    第二步：检查版本
+    :vue -V
+    第三步：在vscode中打开终端，创建项目，demo01为项目名
+    :vue create demo1
+    第四步：选择vue版本，这里选择手动设置
+    √Manually select features
+    第五步：这里可选择是否使用路由，严格语法，测试单元等。空格选择，回车确认
+    √Babel
+    第六步：这里选择版本为3的脚手架
+    √3.x
+    第七步：选择这个
+    √in packge.json
+    第八步：写N
+    创建成功
+-->
+
+<!-- vue2脚手架的安装
+    本电脑已经安装node,如果没有安装需要先安装,查看node有没有安装（node -v）
+    用管理员权限创建
+    第一步：全局安装webpack
+    :npm i webpack-cli -g
+    第二步：安装成功就可以在Node>node_global>node_modules文件夹下找到webpack-cli文件夹
+    第三步：全局安装vue2.x版本
+    :npm i vue-cli -g
+    第四步：检查版本
+    :vue -V
+    第五步：创建项目
+    vue init webpack demo1
+    第六步：项目设置
+    分别填写：vue、A Vue.jsproject、A、standalone、no、no、no、no、npm
+    创建完成
+
+-->

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>key的作用</title>
+    <script src="https://unpkg.com/vue@next"></script><!--使用CDN的方式引用vue-->
+</head>
+<!-- key的作用是节点的唯一id,更快的找到VNode -->
+<!-- 有key和没有key分别做了什么？ -->
+<!-- VNode叫做虚拟节点，优点可以跨平台渲染，他的本质是javascrip对象 -->
+<!-- VNode形成的树叫做虚拟dom，最后渲染成为真实的dom -->
+<body>
+    <div id="app"></div>
+    <template id="modular">
+        <li v-for="(movie,index) in movies" v-bind:key="movie">{{index+1}}{{movie}}</li>
+    </template>
+    <script>
+        Vue.createApp({
+            
+            template:'#modular',//1模块
+
+            data:function(){//2数据
+                return{
+                    movies:[
+                    "星际穿越",
+                    "盗梦空间",
+                    "大话西游",
+                 ],   
+                }
+            },
+
+            methods:{//3方法
+                
+            }
+        }).mount("#app");
+    </script>
+</body>
+</html>

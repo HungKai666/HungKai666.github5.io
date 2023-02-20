@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h4>this指的是什么?this在函数里指向调用该函数的方法的对象(谁调用指向谁)</h4>
+</body>
+<script>
+    console.log("1:"+this);//1.没有对象，this指向的是window
+
+    function fun1(){
+        console.log("2:"+this);//2.没有对象，this指向的是window
+    }
+    window.fun1();
+
+    var cat={//3.this指向name
+        name:"猫",
+        fun2(){
+            console.log("3:"+this);
+        }
+    }
+    cat.fun2();
+
+    var cat={
+        name:"狗",
+        fun3(){
+            console.log("4:"+this);//4.this指向name
+            setTimeout(()=>{
+                console.log("5:"+this);//5.this指向name
+            },1000)
+        }
+    }
+    cat.fun3();
+
+    function func(){
+        console.log("6:"+this);//this指向的是window,如果外面有赋值就为1
+    }
+    func.bind()();
+    // func.bind(1)();
+
+
+    
+</script>
+</html>

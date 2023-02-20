@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="checkbox" name="items" value="A"/>A
+    <input type="checkbox" name="items" value="B"/>B
+    <input type="checkbox" name="items" value="C"/>C
+    <input type="checkbox" name="items" value="D"/>D
+    <button onclick="allbox()">全选</button>
+    <button onclick="none()">取消全选</button>
+    <button onclick="submit()">提交</button>
+    <script>
+        function allbox(){
+            var items=document.getElementsByName("items");//获取items
+            for(var i=0;i<items.length;i++){//遍历items
+                items[i].checked=true//选中
+            }
+        }
+        function none(){
+            var items=document.getElementsByName("items");//获取items
+            for(var i=0;i<items.length;i++){//遍历items
+                items[i].checked=false//选中
+            }
+        }
+        function submit(){
+            var items=document.getElementsByName("items");//获取items
+            for(var i=0;i<items.length;i++){
+                if(items[i].checked){//判断有没有选中，选中的才输出
+                    console.log(items[i].value);
+                }
+            }
+        }
+    </script>
+</body>
+</html>

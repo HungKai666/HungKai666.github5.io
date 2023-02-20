@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="list1">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </div>
+    <button onclick="deleted()">删除</button>
+    <div id="list2" class="list2">
+        <input type="checkbox" id="mut">
+        <li>①</li>
+        <li>②</li>
+        <li>③</li>
+        <li>④</li>
+        <button onclick="deleted2()">删除</button>
+    </div>
+    
+    <script>
+        function deleted(){
+            var list1=document.getElementById("list1");//获取list1
+            var atention=confirm("您确定要删除吗");//定义提示框
+            for(var i=0;i<list1.children.length;i++){//遍历list的儿子节点，都删除
+                if(atention){//如果提示框点击确认删除才执行下面代码
+                    list1.removeChild(list1.children[i]);
+                }
+                i--;
+            }
+        }
+        function deleted2(){
+            var list2=document.getElementById("list2");
+            var input=document.getElementById("mut");
+            var atention=confirm("您确定要删除吗");//定义提示框
+            for(var i=0;i<list2.children.length;i++){
+                if(input.checked && atention){//如果勾选了并且提示框点击了确认才执行下面代码
+                    list2.removeChild(list2.children[i]);
+                }
+                i--;
+            }
+        }
+    </script>
+</body>
+</html>

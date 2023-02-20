@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn" onclick="btn2()">按钮</button>
+<script>
+    //第一种写法-id
+    var btn=document.getElementById("btn");//获取对象
+    btn.onclick=function(){//绑定事件
+        alert("被点击了1");
+        var title=document.getElementById("btn");//获取对象
+        console.log("方法一："+title.innerHTML);//获取按钮的内容
+    }
+    //第二种写法-onclick
+    var btn=document.getElementById("btn");//这句话可以省略
+    function btn2(){
+        alert("被点击了2");
+        var result=document.getElementById("btn");
+        console.log("方法二："+result.innerText);
+    }
+    //第三种写法-document.querySelector("css样式")
+    var mut=document.querySelector("button");
+    console.log("方法三："+mut.innerHTML);//innerText和innerHTML都是返回网页内容
+
+</script>
+</body>
+</html>

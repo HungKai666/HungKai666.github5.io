@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>条件渲染</title>
+    <script src="https://unpkg.com/vue@next"></script><!--使用CDN的方式引用vue-->
+</head>
+<!-- v-if  v-else-if v-else v-show-->
+<!-- v-show与v-if的区别：当条件为ture时不会有太大的区别，当条件为false时，v-if把当前元素注释不会编译
+而v-show把当前元素通过设置display:none属性让元素不显示 -->
+<!-- v-show不能与v-else和template一起使用 -->
+<body>
+    <div id="app"></div>
+    <template id="modular">
+        <input type="text" v-model="counter">
+        <h2 v-if="isshow">{{counter}}</h2>
+        <h2 v-if="counter>90">优秀</h2>
+        <h2 v-else-if="counter>60">良好</h2>
+        <h2 v-else="counter<60">不及格</h2>
+    </template>
+    <script>
+        Vue.createApp({
+            
+            template:'#modular',//1模块
+
+            data:function(){//2数据
+                return{
+                 counter:100,
+                 isshow:true,   
+                }
+            },
+
+            methods:{//3方法
+                
+            }
+        }).mount("#app");
+    </script>
+</body>
+</html>

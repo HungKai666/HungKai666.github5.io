@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Registration Form</title>
+  </head>
+  <style>
+    #box{
+      width: 300px;
+      height: 200px;
+      background-color: aquamarine;
+      overflow: auto;/*滚动条 */
+    }
+  </style>
+  <body>
+    <!-- 表单开始 -->
+    <form>
+      <label>用户名:</label>
+      <input type="text" id="username"><br><br>
+      <label>密码:</label>
+      <input type="password" id="password"><br><br>
+      <label>确认密码:</label>
+      <input type="password" id="confirm_password"><br><br>
+      <input type="checkbox" id="agreement" onclick="checkThebox()">
+      <label>我己阅读完服务条款:</label><a href="#">《服务条款》</a>
+    </form>
+    <!-- 表单结束 -->
+    <!-- 滚动视图开始 -->
+    <div id="box">
+      <p>Terms and Conditions:</p>
+      <p>By checking the agreement box and submitting this form, you agree to abide by the terms and conditions as outlined below.</p>
+      <p>1. You will use the website responsibly and in accordance with all applicable laws.</p>
+      <p>2. You will not use the website to engage in any illegal or fraudulent activities.</p>
+      <p>3. You will not use the website to harm, or attempt to harm, the performance of the website or other users' experience.</p>
+    </div>
+    <!-- 滚动视图结束 -->
+    <button type="button" id="submit" disabled onclick="register()">注册</button>
+
+    <script>
+      // 单选框事件
+      function checkThebox(){//为单选框添加事件
+        var checkThebox=document.getElementById("agreement");
+        var submit=document.getElementById("submit");
+        if(checkThebox.checked){//如果单选款勾选了，点击按钮才能显示
+          submit.disabled =false;
+        }
+        else{
+          submit.disabled = true;
+        }
+      }
+      //监听滚动条
+      window.onload=function(){
+        var checkThebox=document.getElementById("agreement");
+        var submit=document.getElementById("submit");
+        var box=document.getElementById("box");
+        box.onscroll=function(){//绑定名字为onscroll的函数
+          if(box.scrollHeight-box.scrollTop==box.clientHeight){//触底了
+            console.log("触底了");
+            checkThebox.checked=true;//单选框自动勾选
+            submit.disabled =false;//按钮可以被点击
+          }
+        }
+      }
+      //注册事件
+      function register(){
+        var username=document.getElementById("username").value;//输入的用户名
+        var password=document.getElementById("password").value;//输入的密码
+        var confirm_password=document.getElementById("confirm_password").value;//输入的确认密码
+        console.log(username);
+          if(username=="" || password==""){
+            alert("用户名和密码不能为空");
+            return;
+          }
+          var reg=/^[a-zA]{8,}$/;//正则表达式
+          if(!reg.test(username)){
+            alert("用户名必须8位以上字母组成");
+            return;
+          }
+          var reg2=/^\d{6}$/;
+          if(!reg2.test(password)){
+            alert("密码请输入6位数字");
+            return;
+          }
+          alert("注册成功");
+          
+      }
+    </script>
+  </body>
+</html>

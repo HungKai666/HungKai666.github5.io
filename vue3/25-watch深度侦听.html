@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>侦听器</title>
+    <script src="https://unpkg.com/vue@next"></script><!--使用CDN的方式引用vue-->
+</head>
+<!-- 侦听器用一些数据发生变化的地方 -->
+<body>
+    <div id="app"></div>
+    <template id="modular">
+        <h2>{{info.name}}</h2>
+        <button @click="changeinfoname">改变名字</button>
+    </template>
+    <script>
+        Vue.createApp({
+            
+            template:'#modular',//1模块
+
+            data:function(){//2数据
+                return{
+                 info:{
+                    name:"张三",
+                    age:18
+                 },   
+                }
+            },
+            watch:{//4侦听
+                //深度侦听
+                info:{
+                    handler:function(newInfo,oldInfo){
+                        console.log("新值",newInfo);
+                    },
+                    deep:true,//深度侦听
+                    immediate:true//立即执行
+                },
+                //深度侦听的另外一种写法
+                "info.name":function(newInfo,oldInfo){
+                    console.log("新值2",newInfo);
+                }
+            },
+            methods:{//3方法
+              changeinfoname(){
+                this.info.name="李四";
+              }
+            }
+        }).mount("#app");
+    </script>
+</body>
+</html>

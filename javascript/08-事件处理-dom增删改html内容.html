@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="city" >
+        <li id="cityA">A</li>
+        <li id="cityB">B</li>
+        <li>C</li>
+    </ul>
+    <button onclick="create()">增加D</button>
+    <button onclick="deleted()">删除A</button>
+    <button onclick="inserted()">修改B</button>
+    
+</body>
+<script>
+    //dom增加事件
+    function create(){
+    var li=document.createElement("li");//创建li标签
+    var d=document.createTextNode("D");//创建li的内容
+    console.log(d);//成功了
+    li.appendChild(d);//把li的内容传li标签里
+    var city =document.getElementById("city");//获取city节点
+    city.appendChild(li);//把li传到city中
+    }
+    //dom删除事件
+    function deleted(){
+        var cityA=document.getElementById("cityA");
+        var city =document.getElementById("city");//获取city节点
+        city.removeChild(cityA);
+    }
+    function inserted(){
+        var li=document.createElement("li");//创建li标签
+        var news=document.createTextNode("新内容");//创建li的内容
+        li.appendChild(news);
+        var cityB=document.getElementById("cityB");
+        document.getElementById("city").replaceChild(li, cityB);//参数，新值，旧值
+    }
+</script>
+</html>

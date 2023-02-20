@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-html指令</title>
+    <script src="https://unpkg.com/vue@next"></script><!--使用CDN的方式引用vue-->
+</head>
+<body>
+    <div id="app"></div>
+    <template id="modular">
+        <h2>{{counter}}</h2>
+        <h2 v-html="counter"></h2><!--把html解析，用得比较少-->
+    </template>
+    <script>
+        Vue.createApp({
+            
+            template:'#modular',//1模块
+
+            data:function(){//2数据
+                return{
+                 counter:'<a style="color:red">你好</a>',   
+                }
+            },
+
+            methods:{//3方法
+                
+            }
+        }).mount("#app");
+    </script>
+</body>
+</html>

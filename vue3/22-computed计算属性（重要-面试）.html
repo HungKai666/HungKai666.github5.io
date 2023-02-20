@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>计算属性</title>
+    <script src="https://unpkg.com/vue@next"></script><!--使用CDN的方式引用vue-->
+</head>
+<!-- 计算属性有三种方法，分别是双花括号插值法，函数法，还有计算属性法 -->
+<!-- 函数法与计算属性的区别：计算属性有缓存(也就是只计算一次，提高性能) -->
+<body>
+    <div id="app"></div>
+    <template id="modular">
+        <h2>{{fullName}}</h2><!--computed需要计算-->
+        <h2>{{fullName}}</h2><!--computed不需要计算-->
+        <h2>{{result}}</h2>
+    </template>
+    <script>
+        Vue.createApp({
+            
+            template:'#modular',//1模块
+
+            data:function(){//2数据
+                return{
+                   firstName:"张三",
+                   lastName:"李四",
+                   score:100,
+
+                }
+            },
+
+            methods:{//3方法
+                add(){//add函数
+
+                },
+            },
+            computed:{//4计算属性,他本质不是函数，是对象，并且有缓存(也就是只计算一次，提高性能)
+                fullName(){
+                    return this.firstName+";"+this.lastName;
+                },
+                result(){
+                    return this.score>=60?"及格":"不及格";
+                }
+            }
+        }).mount("#app");
+    </script>
+</body>
+</html>
